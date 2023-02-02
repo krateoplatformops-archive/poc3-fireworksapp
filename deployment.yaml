@@ -1,0 +1,38 @@
+apiVersion: krateo.io/v1alpha1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    deploymentId: eb4d57b0-c764-4cde-8a9f-44bc2895c730
+  name: helm-poc-fireworks
+  uid: 63ffa131-eac0-4ce3-b9ac-f6ac4405c7a7
+spec:
+  description: Cause baby, you're a firework. Come on, show 'em what you're worth
+  links:
+  - icon: fa-brands fa-git
+    title: krateoplatformops/poc3-fireworksapp
+    url: https://github.com/krateoplatformops/poc3-fireworksapp
+  owner: mauro
+  plugins:
+  - endpoint: argocd
+    name: resources
+    type: argocd
+    value: poc3-fireworksapp
+  - endpoint: github
+    name: documentation
+    type: doc
+    values:
+    - name: README.md
+      org: krateoplatformops
+      repo: poc3-fireworksapp
+  - name: kubernetes
+    type: kubernetes
+    value: deploymentId
+  - endpoint: github
+    name: pipelines
+    type: pipeline
+    values:
+    - name: Build Docker image for every commit
+      org: krateoplatformops
+      repo: poc3-fireworksapp
+  title: krateo-system

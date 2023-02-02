@@ -1,0 +1,7 @@
+# 
+---
+namespace: poc3-fireworksapp-ns
+image: ghcr.io/krateoplatformops/poc3-fireworksapp:latest
+replicas: 1
+name: poc3-fireworksapp
+host: fireworks.krateo.site
